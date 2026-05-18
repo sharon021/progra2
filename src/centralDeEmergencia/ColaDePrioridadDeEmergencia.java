@@ -1,61 +1,54 @@
-package centralDeEmergencia;
+package src.centralDeEmergencia;
 
 import centralDeEmergencia.IColaDePrioridadDeEmergencia;
+import centralDeEmergencia.NodoEmergencia;
 
-public class ColaDePrioridadDeEmergencia<T> implements IColaDePrioridadDeEmergencia<T> {
+public class ColaDePrioridadDeEmergencia implements IColaDePrioridadDeEmergencia {
 
-    private static class Elemento{
-        String dato;
-        int prioridad;
-        Elemento(String dato, int prioridad){
-            this.dato = dato;
-            this.prioridad = prioridad;
-        }
-    }
-
-    private Elemento[] datos;
+    private NodoEmergencia frente;
     private int cantidad;
-    private final int MAX;
 
-    public ColaDePrioridadDeEmergencia(int tamaño) {
-        this.MAX = tamaño;
-        this.datos = new Elemento[MAX];
+    public ColaDePrioridadDeEmergencia() {
+        this.frente = null;
         this.cantidad = 0;
     }
 
     @Override
-    public void insertar(String datoInsertar, int prioridadDato){
-        if (cantidad < MAX) {
-        int i = cantidad - 1;
-        while (i >= 0 && datos[i].prioridad < prioridadDato) {
-            datos[i + 1] = datos[i];
-            i--;
-        }
-        datos[i + 1] = new Elemento(datoInsertar, prioridadDato);
-        cantidad++;
+    public void insertar(Emergencia dato, int prioridad) {
+        NodoEmergencia nuevo = new NodoEmergencia(dato, prioridad);
+        if (frente == null || prioridad > frente.getPrioridad()) {
+            nuevo.setSiguiente(frente);
+            frente = nuevo;
         } else {
-            System.out.println("Error: Cola de emergencia llena.");
-        }
-}
-
-    @Override
-    public String eliminar() {
-        if (cantidad > 0) {
-            String datoExtraido = datos[0].dato;
-            for (int i = 0; i < cantidad - 1; i++) {
-                datos[i] = datos[i + 1];
+            NodoEmergencia actual = frente;
+            while (actual.getSiguiente() != null && actual.getSiguiente().getPrioridad() >= prioridad) {
+                actual = actual.getSiguiente();
             }
-            datos[cantidad - 1] = null;
-            cantidad--;
-            return datoExtraido;
+            nuevo.setSiguiente(actual.getSiguiente());
+            actual.setSiguiente(nuevo);
         }
-        System.out.println("Error: Cola vacía.");
-        return null;
+        cantidad++;
     }
 
     @Override
-    public boolean estaLleno() {
-        return cantidad == MAX;
+    public Emergencia eliminar() {
+        if (estaVacio()) {
+            System.out.println("Error: Cola de emergencia vacía.");
+            return null;
+        }
+        Emergencia datoExtraido = frente.getDato();
+        frente = frente.getSiguiente();
+        cantidad--;
+        return datoExtraido;
+    }
+
+    @Override
+    public Emergencia verFrente() {
+        if (estaVacio()) {
+            System.out.println("Error: Cola vacía.");
+            return null;
+        }
+        return frente.getDato();
     }
 
     @Override
@@ -63,8 +56,7 @@ public class ColaDePrioridadDeEmergencia<T> implements IColaDePrioridadDeEmergen
         return cantidad == 0;
     }
 
-    @Override
-    public String verFrente() {
-        return datos[0].dato;
+    public int getCantidad() {
+        return cantidad;
     }
 }
