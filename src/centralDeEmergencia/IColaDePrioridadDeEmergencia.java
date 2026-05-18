@@ -1,9 +1,9 @@
 package centralDeEmergencia;
 
 public interface IColaDePrioridadDeEmergencia<T> {
-    void insertar(String datoInsertar, int prioridadDato);
-    String eliminar();
+    void insertar(T datoInsertar, int prioridadDato);
+    T eliminar();
     boolean estaLleno();
     boolean estaVacio();
-    String verFrente();
+    T verFrente();
 }

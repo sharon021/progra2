@@ -1,37 +1,35 @@
 package centralDeEmergencia;
 
-import centralDeEmergencia.IColaDePrioridadDeEmergencia;
-
 public class ColaDePrioridadDeEmergencia<T> implements IColaDePrioridadDeEmergencia<T> {
 
-    private static class Elemento{
-        String dato;
+    private static class Elemento<T>{
+        T dato;
         int prioridad;
-        Elemento(String dato, int prioridad){
+        Elemento(T dato, int prioridad){
             this.dato = dato;
             this.prioridad = prioridad;
         }
     }
 
-    private Elemento[] datos;
+    private Elemento<T>[] datos;
     private int cantidad;
     private final int MAX;
 
     public ColaDePrioridadDeEmergencia(int tamaño) {
         this.MAX = tamaño;
-        this.datos = new Elemento[MAX];
+        this.datos = (Elemento<T>[]) new Elemento[MAX];
         this.cantidad = 0;
     }
 
     @Override
-    public void insertar(String datoInsertar, int prioridadDato){
+    public void insertar(T datoInsertar, int prioridadDato){
         if (cantidad < MAX) {
         int i = cantidad - 1;
         while (i >= 0 && datos[i].prioridad < prioridadDato) {
             datos[i + 1] = datos[i];
             i--;
         }
-        datos[i + 1] = new Elemento(datoInsertar, prioridadDato);
+        datos[i + 1] = new Elemento<>(datoInsertar, prioridadDato);
         cantidad++;
         } else {
             System.out.println("Error: Cola de emergencia llena.");
@@ -39,9 +37,9 @@ public class ColaDePrioridadDeEmergencia<T> implements IColaDePrioridadDeEmergen
 }
 
     @Override
-    public String eliminar() {
+    public T eliminar() {
         if (cantidad > 0) {
-            String datoExtraido = datos[0].dato;
+            T datoExtraido = datos[0].dato;
             for (int i = 0; i < cantidad - 1; i++) {
                 datos[i] = datos[i + 1];
             }
@@ -64,7 +62,7 @@ public class ColaDePrioridadDeEmergencia<T> implements IColaDePrioridadDeEmergen
     }
 
     @Override
-    public String verFrente() {
+    public T verFrente() {
         return datos[0].dato;
     }
 }
