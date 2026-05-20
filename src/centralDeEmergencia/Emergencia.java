@@ -1,4 +1,4 @@
-package centralDeEmergencia;
+package src.centralDeEmergencia;
 
 public class Emergencia {
     private String tipoEmergencia;
