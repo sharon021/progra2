@@ -1,4 +1,4 @@
-package centralDeEmergencia;
+package centroDeEmergencia;
 
 public interface IColaDePrioridadDeEmergencia {
     void insertar(Emergencia dato, int prioridad);

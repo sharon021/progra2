@@ -1,4 +1,4 @@
-package src.centralDeEmergencia;
+package centroDeEmergencia;
 
 public class OrdenDePrioridadDeEmergencia {
     

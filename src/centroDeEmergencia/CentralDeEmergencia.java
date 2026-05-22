@@ -1,6 +1,4 @@
-package centralDeEmergencia;
-import src.centralDeEmergencia.ColaDePrioridadDeEmergencia;
-import src.centralDeEmergencia.Emergencia;
+package  centroDeEmergencia;
 
 
 public class CentralDeEmergencia {

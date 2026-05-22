@@ -1,4 +1,4 @@
-package centralDeEmergencia;
+package centroDeEmergencia;
 
 public class NodoEmergencia {
     private Emergencia dato;

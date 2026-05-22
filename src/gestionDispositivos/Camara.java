@@ -1,4 +1,4 @@
-package src.administrarDispositivos;
+package gestionDispositivos;
 
 public class Camara extends Dispositivo {
     private boolean grabando;

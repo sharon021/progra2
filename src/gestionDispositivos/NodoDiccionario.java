@@ -1,6 +1,4 @@
-package src.administrarDispositivos;
-
-
+package gestionDispositivos;
 
 public class NodoDiccionario {
    private String clave;

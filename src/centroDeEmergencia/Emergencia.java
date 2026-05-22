@@ -1,5 +1,4 @@
-package src.centralDeEmergencia;
-
+package centroDeEmergencia;
 public class Emergencia {
     private String tipoEmergencia;
     private String ubicacionEmergencia;

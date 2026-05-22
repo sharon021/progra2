@@ -1,4 +1,4 @@
-package src.administrarDispositivos;
+package gestionDispositivos;
 
 
 public abstract class Dispositivo {

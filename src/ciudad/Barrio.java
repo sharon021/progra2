@@ -2,7 +2,7 @@ package ciudad;
 
 
 public class Barrio {
-    private String nombre;
+    private final String nombre;
     private NodoCiudad primeraManzana; // Ahora usa NodoCiudad
 
     public Barrio(String nombre) {

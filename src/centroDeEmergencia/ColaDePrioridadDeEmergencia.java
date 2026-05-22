@@ -1,7 +1,6 @@
-package src.centralDeEmergencia;
+package centroDeEmergencia;
 
-import centralDeEmergencia.IColaDePrioridadDeEmergencia;
-import centralDeEmergencia.NodoEmergencia;
+
 
 public class ColaDePrioridadDeEmergencia implements IColaDePrioridadDeEmergencia {
 
