@@ -1,4 +1,4 @@
-package grafoCiudad;
+package grafosCiudades;
 
 public class GrafoCiudad {
     

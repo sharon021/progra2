@@ -1,4 +1,4 @@
-package src.grafoCiudad;
+package grafosCiudades;
 
 public class ListaIntersecciones {
     

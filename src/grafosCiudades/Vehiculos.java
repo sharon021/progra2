@@ -1,4 +1,4 @@
-package src.grafoCiudad;
+package grafosCiudades;
 
 public class Vehiculos {
     private String patente;
@@ -39,7 +39,7 @@ public class Vehiculos {
     @Override
     public String toString()
      {
-        return "Vehiculos [Patente=" + patente + ", Tipo=" + tipo + "]";
+        return "Tipo de vehiculo: " + tipo + ". Patente: " + patente;
     }
     
 }
