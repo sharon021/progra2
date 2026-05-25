@@ -1,4 +1,4 @@
-package src.grafoCiudad;
+package grafoCiudad;
 
 public class GrafoCiudad {
     

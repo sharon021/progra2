@@ -1,7 +1,11 @@
-package src.administrarDispositivos;
+package administrarDispositivos;
+import gestionDispositivos.DiccionariosDeDispositivos;
+import gestionDispositivos.Dispositivo;
+
 public class AdministradorDispositivo {
     private DiccionariosDeDispositivos dispositivos;
-    public AdministradorDispositivo() {
+    public AdministradorDispositivo() 
+    {
         this.dispositivos = new DiccionariosDeDispositivos();
     }
 

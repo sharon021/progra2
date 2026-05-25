@@ -1,4 +1,6 @@
-package src.administrarDispositivos;
+package administrarDispositivos;
+
+import gestionDispositivos.Dispositivo;
 
 
 
