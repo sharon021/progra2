@@ -23,4 +23,12 @@ public class Emergencia {
     public void setUbicacionEmergencia(String ubicacionEmergencia) {
         this.ubicacionEmergencia = ubicacionEmergencia;
     }
+
+    @Override
+    public String toString() {
+        return "Emergencia{" +
+            "tipo='" + tipoEmergencia + '\'' +
+            ", ubicacion='" + ubicacionEmergencia + '\'' +
+            '}';
+    }    
 }
