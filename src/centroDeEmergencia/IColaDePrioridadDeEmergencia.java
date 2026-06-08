@@ -2,7 +2,7 @@ package centroDeEmergencia;
 
 public interface IColaDePrioridadDeEmergencia {
     void insertar(Emergencia dato, int prioridad);
-    Emergencia eliminar();
-    boolean estaVacio();
+    Emergencia extraerMayorPrioridad();
     Emergencia verFrente();
+    boolean estaVacio();
 }
