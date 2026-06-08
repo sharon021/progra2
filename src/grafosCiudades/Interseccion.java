@@ -72,8 +72,6 @@ public class Interseccion {
 
     @Override
     public String toString() {
-        return "Interseccion{" +
-                "id='" + id + '\'' +
-                '}';
+        return id;
     }
 }

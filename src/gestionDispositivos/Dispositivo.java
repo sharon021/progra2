@@ -1,7 +1,7 @@
 package gestionDispositivos;
 
 
-public abstract class Dispositivo {
+public class Dispositivo {
     private String codigo;
     private String estado;
 

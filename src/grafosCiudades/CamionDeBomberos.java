@@ -10,15 +10,16 @@ public class CamionDeBomberos extends Vehiculos {
 
     // RF09: Método especial
     public void activarManguera() {
-        System.out.println("¡Camión de Bomberos " + getPatente() + " desplegando mangueras de alta presión con " + capacidadAgua + "L de agua!");
+        System.out.println("¡Camión de Bomberos " + getPatente() + " esta desplegando las mangueras de alta presión con " + capacidadAgua + "L de agua!");
     }
 
     public double getCapacidadAgua() { return capacidadAgua; }
     public void setCapacidadAgua(double capacidadAgua) { this.capacidadAgua = capacidadAgua; }
 
     @Override
-    public String toString() {
-        return "CamionDeBomberos [Patente=" + getPatente() + ", Capacidad Agua=" + capacidadAgua + "L]";
+    public String toString() 
+    {
+        return "Camion de Bomberos - Patente: " + getPatente()+ " | Capacidad de agua: " + capacidadAgua + " litros";
     }
     
 }

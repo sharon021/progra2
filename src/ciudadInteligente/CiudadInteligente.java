@@ -28,9 +28,14 @@ public class CiudadInteligente {
         System.out.println("Sistema iniciado");
     }
 
-    public void generarReporte() {
+    public void generarReporte() 
+    {
         System.out.println("===== REPORTE =====");
         System.out.println("Ciudad: " + ciudad.getNombre());
+        System.out.println("Modulo de emergencias: activo");
+        centralEmergencias.mostrarCantidadEmergencias();
+        System.out.println("Modulo de dispositivos: activo");
+       
     }
 
     public GrafoCiudad getGrafoCiudad() {

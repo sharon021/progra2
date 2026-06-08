@@ -1,9 +1,8 @@
 package gestionDispositivos;
 
 
-
 public class DiccionariosDeDispositivos {
-    private NodoDiccionario[] tabla;
+    private final NodoDiccionario[] tabla;
     private final int TAMANIO = 10;
 
     public DiccionariosDeDispositivos() {

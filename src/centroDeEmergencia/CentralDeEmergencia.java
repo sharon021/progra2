@@ -54,10 +54,7 @@ public class CentralDeEmergencia {
 
     public void mostrarCantidadEmergencias() {
 
-        System.out.println(
-                "Cantidad de emergencias: "
-                        + cola.getCantidad()
-        );
+        System.out.println("Cantidad de emergencias: "+ cola.getCantidad());
     }
 
 }

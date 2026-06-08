@@ -7,15 +7,17 @@ public class Patrullero extends Vehiculos {
         super(patente, "Patrullero", velocidad);
         this.emergenciaActiva = false;
     }
-    public void activarEmergencia() {
+    public void activarEmergencia() 
+    {
         this.emergenciaActiva = true;
-        System.out.println("🚓 ¡Patrullero [" + getPatente() + "] en persecución/emergencia! Luces encendidas.");
+        System.out.println("Emergencia policial activada. Unidad: "+ getPatente());
     }
 
     public boolean isEmergenciaActiva() { return emergenciaActiva; }
 
     @Override
-    public String toString() {
-        return "Patrullero [Patente=" + getPatente() + ", Emergencia=" + (emergenciaActiva ? "SI" : "NO") + "]";
+    public String toString() 
+    {
+        return "Patrullero - Patente: " + getPatente()+ " | Emergencia activa: " + (emergenciaActiva ? "Si" : "No");
     }
 }

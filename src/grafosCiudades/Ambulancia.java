@@ -10,15 +10,17 @@ public class Ambulancia extends Vehiculos {
     }
 
     // RF09: Método especial solicitado en los requerimientos
-    public void activarSirena() {
+    public void activarSirena() 
+    {
         this.sirenaActiva = true;
-        System.out.println("🚨 ¡Sirena de la Ambulancia [" + getPatente() + "] ACTIVADA! Abriendo paso en el tráfico.");
+        System.out.println("Sirena de ambulancia activada. Unidad: "+ getPatente());
     }
 
     public boolean isSirenaActiva() { return sirenaActiva; }
 
-    @Override
-    public String toString() {
-        return "Ambulancia [Patente=" + getPatente() + ", Sirena=" + (sirenaActiva ? "ACTIVA" : "APAGADA") + "]";
+   @Override
+    public String toString() 
+    {
+        return "Ambulancia - Patente: " + getPatente()+ " | Sirena: " + (sirenaActiva ? "Activa" : "Apagada");
     }
 }
