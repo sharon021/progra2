@@ -74,6 +74,13 @@ public class ListaCalles {
 
         return false;
     }
+    
+    // Inserta al inicio de la lista para hacer el camino en orden origen a destino
+    public void agregarAlFrente(Calle calle) {
+    NodoCalle nuevo = new NodoCalle(calle);
+    nuevo.setSiguiente(primero);
+    primero = nuevo;
+    }
 
     public int tamanio() {
     int contador = 0;
