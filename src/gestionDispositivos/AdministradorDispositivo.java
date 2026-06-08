@@ -15,13 +15,13 @@ public class AdministradorDispositivo {
     }
 
     public void actualizarEstado(String codigo, String nuevoEstado) {
-        Dispositivo d = dispositivos.buscar(codigo);
-        if (d != null) {
-            d.setEstado(nuevoEstado);
+        Dispositivo dispositivo = dispositivos.buscar(codigo);
+        if (dispositivo != null) {
+            dispositivo.setEstado(nuevoEstado);
             if (nuevoEstado.equalsIgnoreCase("ENCENDIDO")) {
-                d.encender();
+                dispositivo.encender();
             } else {
-                d.apagar();
+                dispositivo.apagar();
             }
             System.out.println("Estado actualizado para [" + codigo + "] -> " + nuevoEstado);
         } else {

@@ -16,7 +16,7 @@ Lista simplemente enlazada para la gestión de calles (ListaCalles).
 Lista simplemente enlazada para la gestión de intersecciones (ListaIntersecciones).
 Cola FIFO para la administración del flujo vehicular en intersecciones (ColaVehiculos).
 Cola de prioridad implementada mediante lista enlazada ordenada para la gestión de emergencias (ColaDePrioridadDeEmergencia).
-Diccionario hash implementado mediante tabla con encadenamiento para la gestión de dispositivos (DiccionariosDeDispositivos).
+Diccionario implementado mediante lista enlazada de clave-valor para la gestión de dispositivos (DiccionariosDeDispositivos).
 Estructura jerárquica enlazada para la organización territorial de la ciudad (Ciudad, Zona, Barrio y Manzana).
 Funcionalidades implementadas en esta segunda etapa:
 

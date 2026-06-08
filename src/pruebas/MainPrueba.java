@@ -22,13 +22,13 @@ public class MainPrueba {
     public static void main(String[] args) {
 
         System.out.println("====================================");
-        System.out.println(" DEMO SISTEMA CIUDAD INTELIGENTE");
+        System.out.println(" SISTEMA CIUDAD INTELIGENTE");
         System.out.println("====================================");
 
         GrafoCiudad grafo = new GrafoCiudad();
         CentralDeEmergencia central = new CentralDeEmergencia();
         AdministradorDispositivo adminDispositivos = new AdministradorDispositivo();
-        Ciudad ciudad = new Ciudad("Ciudad Inteligente Demo");
+        Ciudad ciudad = new Ciudad("Ciudad Inteligente");
 
         CiudadInteligente sistema = new CiudadInteligente(
                 grafo,
@@ -40,7 +40,7 @@ public class MainPrueba {
         sistema.iniciarSistema();
         sistema.generarReporte();
 
-        System.out.println("\n=== MODULO EMERGENCIAS ===");
+        System.out.println("\nEMERGENCIAS REGISTRADAS: ");
 
         central.registrarEmergencia("Semaforo roto", "Av. Rivadavia y Acoyte", 2);
         central.registrarEmergencia("Incendio", "Hospital Municipal", 10);
@@ -56,7 +56,7 @@ public class MainPrueba {
         central.atenderEmergencia();
         central.atenderEmergencia();
 
-        System.out.println("\n=== MODULO GRAFO CIUDAD ===");
+        System.out.println("\nGRAFO CIUDAD: ");
 
         Interseccion centralEmergencias = new Interseccion("Central de Emergencias");
         Interseccion hospital = new Interseccion("Hospital Municipal");
@@ -66,21 +66,9 @@ public class MainPrueba {
         grafo.agregarInterseccion(hospital);
         grafo.agregarInterseccion(plazaCentral);
 
-        grafo.conectarIntersecciones(
-                centralEmergencias,
-                hospital,
-                "Av. San Martin",
-                2.5,
-                8
-        );
+        grafo.conectarIntersecciones(centralEmergencias,hospital,"Av. San Martin",2.5,8);
 
-        grafo.conectarIntersecciones(
-                hospital,
-                plazaCentral,
-                "Av. Belgrano",
-                1.8,
-                5
-        );
+        grafo.conectarIntersecciones(hospital,plazaCentral,"Av. Belgrano",1.8,5);
 
         System.out.println("Intersecciones cargadas:");
         System.out.println(centralEmergencias);
@@ -120,7 +108,7 @@ public class MainPrueba {
             }
         }
 
-        System.out.println("\n=== MODULO UNIDADES DE EMERGENCIA");
+        System.out.println("\nVEHICULOS DE EMERGENCIA");
 
         Ambulancia ambulancia = new Ambulancia("AMB-101", 120);
         Patrullero patrullero = new Patrullero("PAT-202", 140);
@@ -141,7 +129,7 @@ public class MainPrueba {
             System.out.println(unidad);
         }
 
-        System.out.println("\n=== MODULO DISPOSITIVOS ===");
+        System.out.println("\nDISPOSITIVOS");
 
         Camara camara = new Camara("CAM-01", "APAGADO");
         Semaforo semaforo = new Semaforo("SEM-01", "APAGADO", "ROJO");
@@ -181,15 +169,7 @@ public class MainPrueba {
 
         camara.iniciarGrabacion();
 
-        System.out.println(
-                "Camara "
-                        + camara.getCodigo()
-                        + " grabando: "
-                        + camara.isGrabando()
-        );
+        System.out.println("Camara "+ camara.getCodigo()+ " grabando: "+ camara.isGrabando());
 
-        System.out.println("\n====================================");
-        System.out.println(" FIN DE LA DEMOSTRACION");
-        System.out.println("====================================");
     }
 }

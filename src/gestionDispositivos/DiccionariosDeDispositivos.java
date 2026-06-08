@@ -1,77 +1,70 @@
 package gestionDispositivos;
 
-
 public class DiccionariosDeDispositivos {
-    private final NodoDiccionario[] tabla;
-    private final int TAMANIO = 10;
+
+    private NodoDiccionario primero;
 
     public DiccionariosDeDispositivos() {
-        this.tabla = new NodoDiccionario[TAMANIO];
-    }
-
-    // RENOMBRADA: Ahora se llama funcionDiccionario como me pediste
-    private int funcionDiccionario(String clave) {
-        return Math.abs(clave.hashCode()) % TAMANIO;
+        this.primero = null;
     }
 
     public void insertar(String clave, Dispositivo valor) {
-        // Usamos el nuevo nombre de la función para calcular el índice
-        int indice = funcionDiccionario(clave);
-        NodoDiccionario nuevo = new NodoDiccionario(clave, valor);
 
-        if (tabla[indice] == null) {
-            tabla[indice] = nuevo;
-        } else {
-            NodoDiccionario actual = tabla[indice];
-            while (actual.getSiguiente() != null) {
-                // EL EQUALS ACÁ: Compara si la clave ya existe letra por letra
-                if (actual.getClave().equals(clave)) {
-                    actual.setValor(valor); // Si ya existe, reemplaza el valor viejo
-                    return;
-                }
-                actual = actual.getSiguiente();
-            }
-            // Segunda verificación con .equals() para el último nodo de la lista
+        NodoDiccionario actual = primero;
+
+        while (actual != null) {
             if (actual.getClave().equals(clave)) {
                 actual.setValor(valor);
-            } else {
-                actual.setSiguiente(nuevo); // Si es un ID totalmente nuevo, se engancha al final
+                return;
             }
+            actual = actual.getSiguiente();
         }
+
+        NodoDiccionario nuevo = new NodoDiccionario(clave, valor);
+        nuevo.setSiguiente(primero);
+        primero = nuevo;
     }
 
     public Dispositivo buscar(String clave) {
-        int indice = funcionDiccionario(clave);
-        NodoDiccionario actual = tabla[indice];
+
+        NodoDiccionario actual = primero;
 
         while (actual != null) {
-           
             if (actual.getClave().equals(clave)) {
-                return actual.getValor(); // Si coincide perfectamente, te devuelve el dispositivo
+                return actual.getValor();
             }
-            actual = actual.getSiguiente(); 
+            actual = actual.getSiguiente();
         }
-        return null; 
+
+        return null;
     }
 
     public void eliminar(String clave) {
 
-        int indice = funcionDiccionario(clave);
-        NodoDiccionario actual = tabla[indice];
-        NodoDiccionario anterior = null;
+        if (primero == null) {
+            return;
+        }
+
+        if (primero.getClave().equals(clave)) {
+            primero = primero.getSiguiente();
+            return;
+        }
+
+        NodoDiccionario anterior = primero;
+        NodoDiccionario actual = primero.getSiguiente();
 
         while (actual != null) {
-           
             if (actual.getClave().equals(clave)) {
-                if (anterior == null) {
-                    tabla[indice] = actual.getSiguiente();
-                } else {
-                    anterior.setSiguiente(actual.getSiguiente());
-                }
+                anterior.setSiguiente(actual.getSiguiente());
                 return;
             }
+
             anterior = actual;
             actual = actual.getSiguiente();
         }
+    }
+
+    public boolean estaVacio() {
+        return primero == null;
     }
 }
