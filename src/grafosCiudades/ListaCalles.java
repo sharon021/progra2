@@ -75,6 +75,20 @@ public class ListaCalles {
         return false;
     }
 
+    public int tamanio() {
+    int contador = 0;
+    NodoCalle aux = primero;
+    while (aux != null) {
+        contador++;
+        aux = aux.getSiguiente();
+        }
+    return contador;
+    }
+
+public boolean estaVacio() {
+    return primero == null;
+}
+
     public NodoCalle getPrimero() {
         return primero;
     }
