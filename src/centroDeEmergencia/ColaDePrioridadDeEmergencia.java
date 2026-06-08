@@ -1,7 +1,5 @@
 package centroDeEmergencia;
 
-
-
 public class ColaDePrioridadDeEmergencia implements IColaDePrioridadDeEmergencia {
 
     private NodoEmergencia frente;
@@ -14,39 +12,56 @@ public class ColaDePrioridadDeEmergencia implements IColaDePrioridadDeEmergencia
 
     @Override
     public void insertar(Emergencia dato, int prioridad) {
+
         NodoEmergencia nuevo = new NodoEmergencia(dato, prioridad);
+
         if (frente == null || prioridad > frente.getPrioridad()) {
+
             nuevo.setSiguiente(frente);
             frente = nuevo;
+
         } else {
+
             NodoEmergencia actual = frente;
-            while (actual.getSiguiente() != null && actual.getSiguiente().getPrioridad() >= prioridad) {
+
+            while (actual.getSiguiente() != null &&
+                   actual.getSiguiente().getPrioridad() >= prioridad) {
+
                 actual = actual.getSiguiente();
             }
+
             nuevo.setSiguiente(actual.getSiguiente());
             actual.setSiguiente(nuevo);
         }
+
         cantidad++;
     }
 
     @Override
-    public Emergencia eliminar() {
+    public Emergencia extraerMayorPrioridad() {
+
         if (estaVacio()) {
-            System.out.println("Error: Cola de emergencia vacía.");
+            System.out.println("Error: Cola de emergencia vacia.");
             return null;
         }
-        Emergencia datoExtraido = frente.getDato();
+
+        Emergencia emergenciaExtraida = frente.getDato();
+
         frente = frente.getSiguiente();
+
         cantidad--;
-        return datoExtraido;
+
+        return emergenciaExtraida;
     }
 
     @Override
     public Emergencia verFrente() {
+
         if (estaVacio()) {
-            System.out.println("Error: Cola vacía.");
+            System.out.println("Error: Cola de emergencia vacia.");
             return null;
         }
+
         return frente.getDato();
     }
 
@@ -58,4 +73,12 @@ public class ColaDePrioridadDeEmergencia implements IColaDePrioridadDeEmergencia
     public int getCantidad() {
         return cantidad;
     }
+
+    public void vaciar() {
+        frente = null;
+        cantidad = 0;
+    }
+
+    
+    
 }

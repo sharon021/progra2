@@ -1,4 +1,4 @@
-package administrarDispositivos;
+package administracionDeDispositivos;
 
 import gestionDispositivos.Dispositivo;
 
