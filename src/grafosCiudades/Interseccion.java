@@ -1,22 +1,17 @@
 package grafosCiudades;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Interseccion {
 
     private String id;
     private ColaVehiculos colaVehiculos;
     private ListaCalles callesConectadas;
 
-    // Constructor
     public Interseccion(String id) {
         this.id = id;
         this.colaVehiculos = new ColaVehiculos();
-        this.callesConectadas = new ArrayList<>();
+        this.callesConectadas = new ListaCalles();
     }
 
-    // Métodos
     public void agregarVehiculo(Vehiculos vehiculo) {
         colaVehiculos.encolar(vehiculo);
     }
@@ -26,31 +21,32 @@ public class Interseccion {
     }
 
     public void agregarCalle(Calle calle) {
-        callesConectadas.add(calle);
+        callesConectadas.agregar(calle);
     }
 
     // Getters y Setters
+
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public ColaVehiculos getColaVehiculos() {
         return colaVehiculos;
     }
 
+    public ListaCalles getCallesConectadas() {
+        return callesConectadas;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public void setColaVehiculos(ColaVehiculos colaVehiculos) {
         this.colaVehiculos = colaVehiculos;
     }
 
-    public List<Calle> getCallesConectadas() {
-        return callesConectadas;
-    }
-
-    public void setCallesConectadas(List<Calle> callesConectadas) {
+    public void setCallesConectadas(ListaCalles callesConectadas) {
         this.callesConectadas = callesConectadas;
     }
 
@@ -58,7 +54,6 @@ public class Interseccion {
     public String toString() {
         return "Interseccion{" +
                 "id='" + id + '\'' +
-                ", callesConectadas=" + callesConectadas.size() +
                 '}';
     }
 }
