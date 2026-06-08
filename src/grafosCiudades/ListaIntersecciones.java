@@ -75,6 +75,20 @@ public class ListaIntersecciones {
         return false;
     }
 
+    public int tamanio() {
+    int contador = 0;
+    NodoInterseccion aux = primero;
+    while (aux != null) {
+        contador++;
+        aux = aux.getSiguiente();
+        }
+    return contador;
+    }
+
+public boolean estaVacio() {
+    return primero == null;
+}
+
     // Getters y Setters
     public NodoInterseccion getPrimero() {
         return primero;
