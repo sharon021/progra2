@@ -34,7 +34,7 @@ public class CentralDeEmergencia {
 
         } else {
 
-            Emergencia atendida = cola.eliminar();
+            Emergencia atendida = cola.extraerMayorPrioridad();
 
             System.out.println(
                     "Atendiendo emergencia:"
