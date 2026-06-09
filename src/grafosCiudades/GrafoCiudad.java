@@ -26,34 +26,117 @@ public class GrafoCiudad {
         aristas.agregar(calle);
     }
 
-    public ListaCalles buscarRuta(Interseccion origen,Interseccion destino) 
-    {
-        ListaCalles ruta = new ListaCalles();
+    //IMPLEMENTACION ALGORITMO DIJKSTRA Para buscar ruta optima
+    public ListaCalles calcularRutaMinima(Interseccion origen, Interseccion destino) {
+        ListaCalles rutaMinima = new ListaCalles();
+        
+        if (origen == null || destino == null) {
+            System.out.println("Error: Origen o destino nulos.");
+            return rutaMinima;
+        }
 
-        if (origen == null || destino == null) 
-            {
-            return ruta;
+        int n = vertices.tamanio();
+        if (n == 0) return rutaMinima;
+
+        // Arreglos Para ver el estado de Dijkstra
+        Interseccion[] nodos = new Interseccion[n];
+        double[] distancias = new double[n];
+        Calle[] callePrevia = new Calle[n];
+        boolean[] visitados = new boolean[n];
+
+        //inicializar
+        NodoInterseccion actualNodo = vertices.getPrimero();
+        int indice = 0;
+        int indiceOrigen = -1;
+        int indiceDestino = -1;
+
+        while (actualNodo != null) {
+            nodos[indice] = actualNodo.getInterseccion();
+            distancias[indice] = 99999.0; //representa infinto se inicializa alli para ir encontrando caminos cada vez mas cortos
+            visitados[indice] = false;
+
+            if (nodos[indice].getId().equals(origen.getId())) indiceOrigen = indice;
+            if (nodos[indice].getId().equals(destino.getId())) indiceDestino = indice;
+
+            indice++;
+            actualNodo = actualNodo.getSiguiente();
+        }
+
+        // Validación de existencia en el grafo
+        if (indiceOrigen == -1 || indiceDestino == -1) {
+            System.out.println("Error: El origen o destino no se encuentran registrados en el grafo.");
+            return rutaMinima;
+        }
+
+        distancias[indiceOrigen] = 0.0;
+
+        for (int i = 0; i < n; i++) {
+            //Extraer el nodo no visitado con la distancia mínima
+            int u = -1;
+            double minDistancia = 99999.0;
+            
+            for (int j = 0; j < n; j++) {
+                if (!visitados[j] && distancias[j] < minDistancia) {
+                    minDistancia = distancias[j];
+                    u = j;
+                }
             }
 
-        Calle calleDirecta = origen.buscarCalleHacia(destino);
+            // Si no hay más nodos alcanzables o ya se extrajo el destino se corta
+            if (u == -1 || u == indiceDestino) break;
 
-        if (calleDirecta != null) 
-            {
-                ruta.agregar(calleDirecta);
-            } 
-        else {
-                System.out.println("No se encontro una ruta directa.");
+            visitados[u] = true;
+
+            NodoCalle actualCalle = nodos[u].getCallesConectadas().getPrimero();
+            while (actualCalle != null) {
+                Calle calle = actualCalle.getCalle();
+                Interseccion vecino = calle.getDestino();
+
+                // Buscar el índice del vecino en el arreglo
+                int v = -1;
+                for (int j = 0; j < n; j++) {
+                    if (nodos[j].getId().equals(vecino.getId())) {
+                        v = j;
+                        break;
+                    }
+                }
+
+                // Si el vecino existe, no fue visitado, y se encuentra un camino más corto
+                if (v != -1 && !visitados[v]) {
+                    double nuevaDistancia = distancias[u] + calle.getDistancia(); // O usa calle.getTiempoEstimado() según requieras
+                    if (nuevaDistancia < distancias[v]) {
+                        distancias[v] = nuevaDistancia;
+                        callePrevia[v] = calle; // se guarda para construir la ruta
+                    }
+                }
+                actualCalle = actualCalle.getSiguiente();
             }
+        }
 
-        return ruta;
+        //Reconstruir la ruta óptima
+        if (distancias[indiceDestino] == 99999.0) {
+            System.out.println("No existe un camino posible entre " + origen.getId() + " y " + destino.getId());
+            return rutaMinima;
+        }
 
+        int actual = indiceDestino;
+        while (actual != indiceOrigen) {
+            Calle calleLlegada = callePrevia[actual];
+            //Origen -> Destino
+            rutaMinima.agregarAlFrente(calleLlegada); 
+
+            // Retroceder al nodo origen de la calle que se acanba de agregar
+            Interseccion nodoAnterior = calleLlegada.getOrigen();
+            for (int j = 0; j < n; j++) {
+                if (nodos[j].getId().equals(nodoAnterior.getId())) {
+                    actual = j;
+                    break;
+                }
+            }
+        }
+
+        return rutaMinima;
     }
-
-    public ListaCalles calcularRutaMinima(Interseccion origen,Interseccion destino) {
-
-        return buscarRuta(origen, destino);
-    }
-
     public ListaIntersecciones getVertices() {
         return vertices;
     }
