@@ -26,13 +26,13 @@ RF01: Registro de calles e intersecciones
 
 RF02: Consulta de rutas entre distintos puntos de la ciudad
 
-  Permite consultar rutas entre intersecciones conectadas.
+  Permite consultar la conectividad entre puntos y rutas viables a través de toda la red de calles de la ciudad.
 
   Demostrado en: MainPrueba.java
 
 RF03: Determinación de caminos mínimos
 
-  Se implementó la estructura del grafo para calcular rutas entre intersecciones.
+  Se implementó el algoritmo Dijkstra para establecer las rutas mas rapidas entre un origen y un destino en cada consulta de rutas para asi obtener siempre el resultado mas optimo
 
   Demostrado en: MainPrueba.java
 
