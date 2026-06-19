@@ -71,10 +71,10 @@ public class CiudadInteligente {
     public void setCiudad(Ciudad ciudad) {
         this.ciudad = ciudad;
     }
-    public void gestionarEmergencia(String tipo,String ubicacion,int prioridad) 
+    public void gestionarEmergencia(String tipo,String ubicacion) 
     {
 
-        centralEmergencias.registrarEmergencia(tipo,ubicacion,prioridad);
+        centralEmergencias.registrarEmergencia(tipo,ubicacion);
 
         System.out.println("Calculando ruta...");
 

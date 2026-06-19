@@ -5,7 +5,7 @@ public class ReporteEmergencia {
     private String tipoEmergencia;
     private String ubicacion;
     private String vehiculoInvolucrado;
-    private int prioridad;
+   
 
     public ReporteEmergencia(
             String nombreReportante,
@@ -18,7 +18,7 @@ public class ReporteEmergencia {
         this.tipoEmergencia = tipoEmergencia;
         this.ubicacion = ubicacion;
         this.vehiculoInvolucrado = vehiculoInvolucrado;
-        this.prioridad = prioridad;
+       
     }
 
     public String getNombreReportante() {
@@ -37,8 +37,6 @@ public class ReporteEmergencia {
         return vehiculoInvolucrado;
     }
 
-    public int getPrioridad() {
-        return prioridad;
-    }
+    
     
 }

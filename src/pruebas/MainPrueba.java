@@ -42,9 +42,9 @@ public class MainPrueba {
 
         System.out.println("\nEMERGENCIAS REGISTRADAS: ");
 
-        central.registrarEmergencia("Semaforo roto", "Av. Rivadavia y Acoyte", 2);
-        central.registrarEmergencia("Incendio", "Hospital Municipal", 10);
-        central.registrarEmergencia("Accidente de transito", "Plaza Central", 7);
+        central.registrarEmergencia("Semaforo roto", "Av. Rivadavia y Acoyte");
+        central.registrarEmergencia("Incendio", "Hospital Municipal");
+        central.registrarEmergencia("Accidente de transito", "Plaza Central");
 
         central.mostrarCantidadEmergencias();
         central.mostrarProximaEmergencia();

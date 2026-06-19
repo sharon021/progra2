@@ -1,63 +1,36 @@
 package pruebas;
 
-import centroDeEmergencia.ColaDePrioridadDeEmergencia;
-import centroDeEmergencia.Emergencia;
+import centroDeEmergencia.CentralDeEmergencia;
 
 public class TestEmergencias {
 
     public static void main(String[] args) {
 
-        ColaDePrioridadDeEmergencia cola = new ColaDePrioridadDeEmergencia();
+        CentralDeEmergencia central = new CentralDeEmergencia();
 
-        Emergencia e1 =
-                new Emergencia(
-                        "Accidente de transito",
-                        "Av. Rivadavia 1230"
-                );
+        System.out.println("\n=== REGISTRO CON PRIORIDAD AUTOMATICA ===");
 
-        Emergencia e2 =
-                new Emergencia(
-                        "Incendio",
-                        "Av. Corrientes 525"
-                );
+        central.registrarEmergencia("Corte de calle", "Av. Cabildo 1500");
+        central.registrarEmergencia("Incendio", "Av. Corrientes 525");
+        central.registrarEmergencia("Accidente", "Av. Rivadavia 1230");
+        central.registrarEmergencia("Semaforo roto", "Cabildo 222");
+        central.registrarEmergencia("Otro incidente", "Plaza Central");
 
-        Emergencia e3 =
-                new Emergencia(
-                        "Robo",
-                        "Cabildo 222"
-                );
+        System.out.println("\n=== CANTIDAD DE EMERGENCIAS ===");
+        central.mostrarCantidadEmergencias();
 
-        // prioridad: cuanto mas alta, mas urgente
-        cola.insertar(e1, 3);
-        cola.insertar(e2, 10);
-        cola.insertar(e3, 6);
+        System.out.println("\n=== EMERGENCIA MAS GRAVE ===");
+        central.mostrarProximaEmergencia();
 
-        System.out.println("=== EMERGENCIA MAS GRAVE ===");
+        System.out.println("\n=== DESPACHANDO POR PRIORIDAD ===");
 
-        Emergencia emergencia = cola.verFrente();
-
-        System.out.println(
-                emergencia.getTipoEmergencia() +
-                " - " +
-                emergencia.getUbicacionEmergencia()
-        );
-
-        System.out.println("\n=== DESPACHANDO ===");
-
-        while (!cola.estaVacio()) {
-
-            Emergencia atendida =
-                    cola.extraerMayorPrioridad();
-
-            System.out.println(
-                    atendida.getTipoEmergencia() +
-                    " - " +
-                    atendida.getUbicacionEmergencia()
-            );
-        }
+        central.atenderEmergencia();
+        central.atenderEmergencia();
+        central.atenderEmergencia();
+        central.atenderEmergencia();
+        central.atenderEmergencia();
 
         System.out.println("\n=== PRUEBA DE COLA VACIA ===");
-
-        cola.extraerMayorPrioridad();
+        central.atenderEmergencia();
     }
 }

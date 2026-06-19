@@ -14,7 +14,7 @@ public class OperadorEmergencia {
             System.out.println("Tipo de emergencia: " + reporte.getTipoEmergencia());
             System.out.println("Ubicacion: " + reporte.getUbicacion());
             System.out.println("Vehiculo involucrado: " + reporte.getVehiculoInvolucrado());
-            central.registrarEmergencia(reporte.getTipoEmergencia(),reporte.getUbicacion(),reporte.getPrioridad());
+            central.registrarEmergencia(reporte.getTipoEmergencia(),reporte.getUbicacion());
             System.out.println("Reporte enviado a la Central de Emergencias.");
         
     }
