@@ -3,7 +3,8 @@ package ciudadInteligente;
 import centroDeEmergencia.CentralDeEmergencia;
 import ciudad.Ciudad;
 import gestionDispositivos.AdministradorDispositivo;
-import grafosCiudades.GrafoCiudad;
+import gestionRutas.GrafoCiudad;
+
 
 public class CiudadInteligente {
 
@@ -70,4 +71,21 @@ public class CiudadInteligente {
     public void setCiudad(Ciudad ciudad) {
         this.ciudad = ciudad;
     }
+    public void gestionarEmergencia(String tipo,String ubicacion,int prioridad) 
+    {
+
+        centralEmergencias.registrarEmergencia(tipo,ubicacion,prioridad);
+
+        System.out.println("Calculando ruta...");
+
+        System.out.println("Liberando trafico...");
+
+        System.out.println("Semaforos en VERDE.");
+
+        System.out.println("Despachando unidad.");
+
+        centralEmergencias.atenderEmergencia();
+    }
+
+
 }

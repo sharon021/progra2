@@ -1,4 +1,4 @@
-package grafosCiudades;
+package gestionRutas;
 
 public class ColaIntersecciones {
     private NodoInterseccion frente;

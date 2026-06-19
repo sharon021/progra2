@@ -1,7 +1,7 @@
 package pruebas;
 
-import grafosCiudades.Interseccion;
-import grafosCiudades.Vehiculos;
+import gestionRutas.Interseccion;
+import unidadesDeEmergencia.Vehiculos;
 
 public class TestIntersecciones {
 
@@ -40,7 +40,7 @@ public class TestIntersecciones {
         while (!interseccion.getColaVehiculos().estaVacia()) {
 
             Vehiculos vehiculo =
-                    interseccion.liberarVehiculo();
+                    (Vehiculos) interseccion.liberarVehiculo();
 
             System.out.println(vehiculo);
         }

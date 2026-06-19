@@ -13,7 +13,18 @@ public class Semaforo extends Dispositivo {
     }
 
     public String getColorActual() { return colorActual; }
-    public void setColorActual(String colorActual) { this.colorActual = colorActual; }
+    public void setColorActual(String colorActual) { 
+        this.colorActual = colorActual; 
+    }
+    public void liberarPasoEmergencia() 
+    {
+        cambiarColor("VERDE");
+    }
+
+    public void restablecerTrafico() 
+    {
+        cambiarColor("ROJO");
+    }
 
     
 }

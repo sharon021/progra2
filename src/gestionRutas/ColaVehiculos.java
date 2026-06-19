@@ -1,4 +1,7 @@
-package grafosCiudades;
+package gestionRutas;
+
+import unidadesDeEmergencia.NodoVehiculos;
+import unidadesDeEmergencia.Vehiculos;
 
 public class ColaVehiculos {
     private NodoVehiculos frente;

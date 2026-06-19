@@ -1,4 +1,4 @@
-package grafosCiudades;
+package unidadesDeEmergencia;
 
 public class Patrullero extends Vehiculos {
     private boolean emergenciaActiva;

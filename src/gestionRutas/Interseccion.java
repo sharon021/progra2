@@ -1,4 +1,6 @@
-package grafosCiudades;
+package gestionRutas;
+
+import unidadesDeEmergencia.Vehiculos;
 
 public class Interseccion {
 

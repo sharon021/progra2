@@ -18,7 +18,7 @@ Cola FIFO para la administración del flujo vehicular en intersecciones (ColaVeh
 Cola de prioridad implementada mediante lista enlazada ordenada para la gestión de emergencias (ColaDePrioridadDeEmergencia).
 Diccionario implementado mediante lista enlazada de clave-valor para la gestión de dispositivos (DiccionariosDeDispositivos).
 Estructura jerárquica enlazada para la organización territorial de la ciudad (Ciudad, Zona, Barrio y Manzana).
-Funcionalidades implementadas en esta segunda etapa:
+Funcionalidades implementadas en esta tercera etapa:
 
 RF01: Registro de calles e intersecciones
   Permite registrar intersecciones y conectarlas mediante calles dentro del grafo de la ciudad.
@@ -43,11 +43,13 @@ RF04: Registro y priorización de emergencias mediante una cola de prioridad.
   MainPrueba.java
 RF05: Administración de dispositivos inteligentes
 
-  Permite registrar, buscar y actualizar dispositivos inteligentes mediante un diccionario.
+  Permite registrar, buscar, eliminar y actualizar dispositivos inteligentes mediante un diccionario.
 
   Demostrado en: MainPrueba.java
 
-
+RF06: Organización territorial de la ciudad:
+Probado en:
+  TestCiudad.java
 RF07: Gestión del flujo vehicular en intersecciones mediante una cola FIFO.
   Probado en: 
   TestIntersecciones.java
@@ -55,8 +57,13 @@ RF07: Gestión del flujo vehicular en intersecciones mediante una cola FIFO.
 
 RF08: Consulta de la emergencia más grave utilizando el método verFrente().
   Probado en: 
+  TestCiudad.java
+  TestGestionRutas.java
+  TestIntersecciones.java
   TestEmergencias.java
-  MainPrueba.java
+  TestDispositivos.java
+  TestCiudadInteligente.java
+  Main.java
 
 
 RF09: Control de errores al intentar operar sobre estructuras vacías.
@@ -64,5 +71,11 @@ RF09: Control de errores al intentar operar sobre estructuras vacías.
     TestEmergencias.java
     TestIntersecciones.java
     MainPrueba.java
+
+RF10: Integración de los módulos del sistema
+Permite simular el flujo completo de una emergencia desde su reporte, registro en la central, cálculo de rutas gestión de dispositivos, liberación del flujo vehicular y despacho de unidades de emergencia.
+
+Probado en:
+TestCiudadInteligente.java
 
 Link del repositorio: https://github.com/sharon021/progra2.git

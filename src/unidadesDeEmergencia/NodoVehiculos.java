@@ -1,4 +1,4 @@
-package grafosCiudades;
+package unidadesDeEmergencia;
 
 public class NodoVehiculos {
 

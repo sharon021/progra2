@@ -7,15 +7,15 @@ import gestionDispositivos.AdministradorDispositivo;
 import gestionDispositivos.Camara;
 import gestionDispositivos.Dispositivo;
 import gestionDispositivos.Semaforo;
-import grafosCiudades.Ambulancia;
-import grafosCiudades.Calle;
-import grafosCiudades.CamionDeBomberos;
-import grafosCiudades.GrafoCiudad;
-import grafosCiudades.Interseccion;
-import grafosCiudades.ListaCalles;
-import grafosCiudades.NodoCalle;
-import grafosCiudades.Patrullero;
-import grafosCiudades.Vehiculos;
+import gestionRutas.Calle;
+import gestionRutas.GrafoCiudad;
+import gestionRutas.Interseccion;
+import gestionRutas.ListaCalles;
+import gestionRutas.NodoCalle;
+import unidadesDeEmergencia.Ambulancia;
+import unidadesDeEmergencia.CamionDeBomberos;
+import unidadesDeEmergencia.Patrullero;
+import unidadesDeEmergencia.Vehiculos;
 
 public class MainPrueba {
 
@@ -125,7 +125,7 @@ public class MainPrueba {
         System.out.println("\nUnidades despachadas:");
 
         while (!centralEmergencias.getColaVehiculos().estaVacia()) {
-            Vehiculos unidad = centralEmergencias.liberarVehiculo();
+            Vehiculos unidad = (Vehiculos) centralEmergencias.liberarVehiculo();
             System.out.println(unidad);
         }
 

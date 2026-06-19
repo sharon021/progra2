@@ -28,4 +28,7 @@ public class AdministradorDispositivo {
             System.out.println("No se encontró el dispositivo buscado con el codigo: " + codigo);
         }
     }
+    public void eliminarDispositivo(String codigo) {
+        dispositivos.eliminar(codigo);
+    }
 }
